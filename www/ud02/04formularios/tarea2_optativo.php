@@ -6,6 +6,18 @@
     <body>
         <div>
             <!-- Aquí va el formulario-->
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        <p>Elija una bebida:</p>
+            <select name="bebidas">
+                <option value="cocacola">Coca Cola</option>
+                <option value="pepsicola">Pepsi Cola</option>
+                <option value="fanta">Fanta Naranja</option>
+                <option value="trina">Trina Manzana</option>
+            </select>
+            <p>Elija la cantidad:</p>
+            <input type="number" name="cantidad" min="0" value="0">
+            <input type="submit" value="Solicitar">
+        </form>
 <?php 
 /*
 Crea un formulario para solicitar una de las siguientes bebidas:
@@ -26,6 +38,39 @@ Crea un formulario para solicitar una de las siguientes bebidas:
     */
 
     //Aquí va el código PHP que muestra la información solicitada.
+
+
+    switch ($_POST["bebidas"]){
+        case "cocacola" : {
+            $bebida = "Coca Cola";
+            $precio = 1;
+            break;
+        }
+        case "pepsicola" : {
+            $bebida = "Pepsi Cola";
+            $precio = 0.80;
+            break;
+        }
+        case "fanta" : {
+            $bebida = "Fanta Naranja";
+            $precio = 0.90;
+            break;
+        }
+        case "trina" : {
+            $bebida = "Trina Manzana";
+            $precio = 1.10;
+            break;
+        }
+        default: {
+            $bebida = "nada";
+            $precio = 0;
+        }
+    }
+
+    $cantidad = $_POST["cantidad"];
+    echo $_POST["bebidas"];
+
+    echo "<p>Pediste ", $cantidad, " botellas de ", $bebida, ". Precio total a pagar: ", ($cantidad * $precio), " Euros.";
 ?>
 </body>
 </html>
