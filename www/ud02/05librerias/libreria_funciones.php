@@ -1,5 +1,14 @@
 <?php 
 
+// 'include'
+// interpreta el contenido del fichero
+// 'include_once'
+// interpreta el contenido del fichero una sola vez, en caso de que se intente incluir más de una vez
+// 'require'
+// igual que include, pero si no encuentra el fichero da error
+// 'require_once'
+// igual que require, pero evita que se incluya más de una vez
+
 // 1. Crea una función que reciba un carácter e imprima se o carácter é un díxito entre 0 e 9.
 // Opción A
 function es_digito_a($caracter) {
