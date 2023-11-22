@@ -13,6 +13,21 @@
     <h1>Alta de usuario </h1>
     <?php
         //Comprobar se veñen datos polo $_POST
+        $nombre = $apellidos = $edad = $provincia = "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nombre = test_input($_POST["nombre"]);
+            $apellidos = test_input($_POST["apellidos"]);
+            $edad = test_input($_POST["edad"]);
+            $provincia = test_input($_POST["provincia"]);
+        }
+
+        function test_input($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
         //Conexión
         //Seleccionar bd
         //Executar o INSERT
@@ -23,6 +38,13 @@
 
     <p>Formulario de alta</p>
     <!-- o "action" chama a dar_de_alta.php de xeito reflexivo-->
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        <p>Nombre: <input type="text" name="nombre" id="nombre" required maxlength="50"></p>
+        <p>Apellidos: <input type="text" name="apellidos" id="apellidos" required maxlength="100"></p>
+        <p>Edad: <input type="number" name="edad" id="edad" required></p>
+        <p>Provincia: <input type="text" name="provincia" id="provincia" required maxlength="50"></p>
+        <input type="submit" value="Enviar">
+    </form>
     
     <footer>
         <p>
