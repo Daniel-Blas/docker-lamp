@@ -11,14 +11,34 @@
 
 <body>
     <h1>Lista de usuarios</h1>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
     <p>Lista de usuarios con enlaces para borrar y editar</p>
     <?php
+        include('lib/base_datos.php');
         //Obter conexión
+        $conexion = get_conexion();
         //Seleccionar bd
+        seleccionar_bd_tienda($conexion);
         //Consulta obtención dos usuarios (array)
+        $sql = "SELECT * FROM usuarios";
+        $resultados = $conexion->query($sql);
+        if ($resultados->num_rows > 0){
+            echo "<table>
+            <tr> <th>id</th> <th>Nombre</th> <th>Apellidos</th> <th>edad</th> <th>Provincia</th> <th>Editar</th> <th>Borrar</th> </tr>";
+            while ($row = $resultados->fetch_assoc()){
+                echo "<tr>
+                <td>$row[id] </td> <td>$row[nombre] </td> <td>$row[apellidos] </td> <td>$row[edad] </td> <td>$row[provincia] </td>
+                <td><form action='editar.php?id=$row[id]' method='get'><input type='submit' value='Editar'/></form></td> 
+                <td><form action='borrar.php?id=$row[id]' method='get'><input type='submit' value='Borrar'/></form></td>
+                </tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "Non hay resultados.";
+        }
         //Crear lista de usuarios
         //  - cada usuario mostra dous enlaces (editar e borrar)
         //  - editar.php?id=4

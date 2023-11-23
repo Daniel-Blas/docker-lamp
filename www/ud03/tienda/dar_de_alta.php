@@ -14,12 +14,23 @@
     <?php
         //Comprobar se veñen datos polo $_POST
         $nombre = $apellidos = $edad = $provincia = "";
-
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            include("lib/base_datos.php");
+            $conexion = get_conexion();
+            seleccionar_bd_tienda($conexion);
+
             $nombre = test_input($_POST["nombre"]);
             $apellidos = test_input($_POST["apellidos"]);
             $edad = test_input($_POST["edad"]);
             $provincia = test_input($_POST["provincia"]);
+
+            $sql = "INSERT INTO usuarios (nombre, apellidos, edad, provincia) VALUES ('$nombre', '$apellidos', '$edad', '$provincia')";
+            if($conexion->query($sql)){
+                echo "Se ha creado un nuevo registro";
+            }else{
+                echo "No se pudo crear el registro".$conexion->error;
+            }
         }
 
         function test_input($data) {
