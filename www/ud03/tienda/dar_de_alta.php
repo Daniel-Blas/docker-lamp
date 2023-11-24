@@ -17,7 +17,9 @@
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             include("lib/base_datos.php");
+            //Conexión
             $conexion = get_conexion();
+            //Seleccionar bd
             seleccionar_bd_tienda($conexion);
 
             $nombre = test_input($_POST["nombre"]);
@@ -25,6 +27,7 @@
             $edad = test_input($_POST["edad"]);
             $provincia = test_input($_POST["provincia"]);
 
+            //Executar o INSERT
             $sql = "INSERT INTO usuarios (nombre, apellidos, edad, provincia) VALUES ('$nombre', '$apellidos', '$edad', '$provincia')";
             if($conexion->query($sql)){
                 echo "Se ha creado un nuevo registro";
@@ -39,9 +42,6 @@
             $data = htmlspecialchars($data);
             return $data;
         }
-        //Conexión
-        //Seleccionar bd
-        //Executar o INSERT
     ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">

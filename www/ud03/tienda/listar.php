@@ -26,24 +26,24 @@
         $sql = "SELECT * FROM usuarios";
         $resultados = $conexion->query($sql);
         if ($resultados->num_rows > 0){
+            //Crear lista de usuarios
             echo "<table>
             <tr> <th>id</th> <th>Nombre</th> <th>Apellidos</th> <th>edad</th> <th>Provincia</th> <th>Editar</th> <th>Borrar</th> </tr>";
             while ($row = $resultados->fetch_assoc()){
+                //  - cada usuario mostra dous enlaces (editar e borrar)
+                //  - editar.php?id=4
+                //  - borrar.php?id=7
                 echo "<tr>
                 <td>$row[id] </td> <td>$row[nombre] </td> <td>$row[apellidos] </td> <td>$row[edad] </td> <td>$row[provincia] </td>
-                <td><form action='editar.php?id=$row[id]' method='get'><input type='submit' value='Editar'/></form></td> 
-                <td><form action='borrar.php?id=$row[id]' method='get'><input type='submit' value='Borrar'/></form></td>
+                <td><a href='editar.php?id=$row[id]'>Editar</a></td> 
+                <td><a href='borrar.php?id=$row[id]'>Borrar</a></td>
                 </tr>";
             }
             echo "</table>";
         } else {
             echo "Non hay resultados.";
         }
-        //Crear lista de usuarios
-        //  - cada usuario mostra dous enlaces (editar e borrar)
-        //  - editar.php?id=4
-        //  - borrar.php?id=7
-    ?>
+        ?>
     <footer>
         <p>
             <a href='index.php'>Página de inicio</a>
