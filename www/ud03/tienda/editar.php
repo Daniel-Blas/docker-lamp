@@ -13,38 +13,61 @@
     <h1>Editar usuario </h1>
     <?php
         include("lib/base_datos.php");
+        include("lib/utilidades.php");
 
         //Obter id de $_GET
-        $id = $_GET['id'];
-        //Conexión
-        $conexion = get_conexion();
-        //Seleccionar bd
-        seleccionar_bd_tienda($conexion);
-        //Consultar datos de ese id
-        $sql = "SELECT nombre, apellidos, edad, provincia FROM usuarios";
-        if ($datos = $conexion->query($sql)){
-            $dato = $datos->fetch_assoc();
-            echo '<p>Estos es el usuario que desea editar:</br>';
-            echo "Nombre: $dato[nombre]</br>";
-            echo "Apellidos: $dato[apellidos]</br>";
-            echo "Edad: $dato[edad]</br>";
-            echo "Provincia: $dato[provincia]</p>";
-        } else {
-            echo "Se ha producido un error";
+        if ($_SERVER["REQUEST_METHOD"] == "GET"){
+            $id = $_GET['id'];
+       
+            
+            //Conexión
+            $conexion = get_conexion();
+            //Seleccionar bd
+            seleccionar_bd_tienda($conexion);
+            //Consultar datos de ese id
+            $sql = "SELECT nombre, apellidos, edad, provincia FROM usuarios WHERE id = $id";
+            if ($datos = $conexion->query($sql)){
+                $dato = $datos->fetch_assoc();
+                echo '<p>Estos es el usuario que desea editar:</br>';
+                echo "Nombre: $dato[nombre]</br>";
+                echo "Apellidos: $dato[apellidos]</br>";
+                echo "Edad: $dato[edad]</br>";
+                echo "Provincia: $dato[provincia]</p>";
+            } else {
+                echo "Se ha producido un error";
+            }
         }
         //Obter os datos de $_POST
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $id = $_POST['id'];
             $nombre = test_input($_POST["nombre"]);
             $apellidos = test_input($_POST["apellidos"]);
             $edad = test_input($_POST["edad"]);
             $provincia = test_input($_POST["provincia"]);
 
+            $conexion = get_conexion();
+            //Seleccionar bd
+            seleccionar_bd_tienda($conexion);
+
             //Executar UPDATE
-            $sql = "UPDATE usuarios (nombre, apellidos, edad, provincia) VALUES ('$nombre', '$apellidos', '$edad', '$provincia') WHERE id = $id";
+            $sql = "UPDATE usuarios SET nombre = '$nombre', apellidos =  '$apellidos', edad =  '$edad', provincia = '$provincia' WHERE id = $id";
             if($conexion->query($sql)){
-                echo "Se ha creado un nuevo registro";
+                echo "<p>Se ha actualizado con éxito.</p>";
             }else{
-                echo "No se pudo crear el registro".$conexion->error;
+                echo "<p>No se ha podido actualizar ".$conexion->error."</p>";
+            }
+
+            
+            $sql = "SELECT nombre, apellidos, edad, provincia FROM usuarios WHERE id = $id";
+            if ($datos = $conexion->query($sql)){
+                $dato = $datos->fetch_assoc();
+                echo '<p>Este es el usuario que desea editar:</br>';
+                echo "Nombre: $dato[nombre]</br>";
+                echo "Apellidos: $dato[apellidos]</br>";
+                echo "Edad: $dato[edad]</br>";
+                echo "Provincia: $dato[provincia]</p>";
+            } else {
+                echo "Se ha producido un error";
             }
         }
 
@@ -66,11 +89,14 @@
         <input type="number" name="edad" id="edad" required value=<?php echo "$dato[edad]";?>></br>
         <label for="provincia">Provincia:</label>
         <input type="text" name="provincia" id="provincia" required maxlength="50" value='<?php echo "$dato[provincia]";?>'></br>
+        <input type="hidden" name="id" id="id" required value='<?php echo "$id";?>' ></br>
+        
         <input type="submit" value="Enviar">
     </form>
     <footer>
         <p>
             <a href='index.php'>Página de inicio</a>
+            <a href='listar.php'>Volver a lista</a>
         </p>
     </footer>
 </body>
