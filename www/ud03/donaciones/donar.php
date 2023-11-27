@@ -18,7 +18,33 @@
     <div>
         Formulario para dar de alta una donación
     </div>
+    <?php
+        include("lib/base_datos.php");
+        $conexion = get_conexion();
+        seleccionar_bd_donacion($conexion);
 
+        if ($_SERVER["REQUEST_METHOD"] == 'GET'){
+            $id = $_GET['id'];
+            $stmt = $conexion->prepare("SELECT * FROM donantes WHERE id = $id");
+            $stmt->execute();
+            $donante = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo "¿Registrar donación de ".$donante['nombre']." ".$donante['apellidos']."?";
+            $postLink = htmlspecialchars($_SERVER["PHP_SELF"]);
+            echo "<form action=\"$postLink\" method=\"post\">";
+            echo "<input type='hidden' name='id' value='$id'>";
+            echo "<input type='submit' value='Donar'></form>";
+
+        }
+
+        if ($_SERVER["REQUEST_METHOD"] == 'POST'){
+            $id = $_POST['id'];
+            $stmt = $conexion->prepare("INSERT INTO historico (donante, fecha_donacion, fecha_proxima_donacion) VALUES (:id, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 4 MONTH))");
+            $stmt->bindParam(':id', $id);
+            
+            $stmt->execute();
+        }
+    ?>
+  
     <footer>
         <p><a href='index.php'>Página de inicio</a></p>
     </footer>

@@ -10,6 +10,17 @@
 </head>
 
 <body>
+
+<?php
+        include("lib/base_datos.php");
+        $conexion = get_conexion();
+        crear_bd_donacion($conexion);
+        //seleccionar_bd_tienda($conexion);
+        crear_tabla_donantes($conexion);
+        crear_tabla_historico($conexion);
+        crear_tabla_administradores($conexion);
+    ?>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>

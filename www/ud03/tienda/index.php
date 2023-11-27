@@ -13,7 +13,6 @@
     <?php
         include("lib/base_datos.php");
         $conexion = get_conexion();
-        crear_bd_tienda($conexion);
         //seleccionar_bd_tienda($conexion);
         crear_tabla_usuario($conexion);
 

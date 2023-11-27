@@ -36,3 +36,5 @@ function crear_tabla_usuario($conexion){
         echo "Error creando tabla".$conexion->error;
     }
 }
+
+?>
