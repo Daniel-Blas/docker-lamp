@@ -27,7 +27,7 @@ use function PHPSTORM_META\type;
 
         if ($_SERVER["REQUEST_METHOD"] == 'GET'){
             $id = $_GET['id'];
-            $stmt = $conexion->prepare("SELECT * FROM donantes WHERE id = $id");
+            $stmt = $conexion->prepare("SELECT * FROM donantes WHERE id = '$id'");
             $stmt->execute();
             $donante = $stmt->fetch(PDO::FETCH_ASSOC);
             echo "Va a eliminar el donante ".$donante['nombre']." ".$donante['apellidos']." ¿Está seguro?";
@@ -40,15 +40,15 @@ use function PHPSTORM_META\type;
 
         if ($_SERVER["REQUEST_METHOD"] == 'POST'){
             $id = $_POST['id'];
-            $sql = "DELETE from donantes WHERE id = $id";
+            $sql = "DELETE from donantes WHERE id = '$id'";
             $conexion->exec($sql);
-            $sql = "DELETE from historico WHERE id = $id";
+            $sql = "DELETE from historico WHERE donante = '$id'";
             $conexion->exec($sql);
         }
     ?>
 
     <footer>
-        <p><a href='index.php'>Página de inicio</a></p>
+        <p><a href='index.php'>Página de inicio</a><a href='listar_donantes.php'>Volver a lista</a></p>
     </footer>
 
 </body>

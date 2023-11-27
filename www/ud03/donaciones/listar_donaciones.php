@@ -18,9 +18,30 @@
     <div>
         Listado de donaciones
     </div>
+    <?php
+
+        include('lib/base_datos.php');
+        $conexion = get_conexion();
+        seleccionar_bd_donacion($conexion);
+        $id = $_GET['id'];
+        $stmt = $conexion->prepare("SELECT * FROM historico WHERE donante = '$id'");
+        $stmt->execute();
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $donaciones = $stmt->fetchAll();
+        echo "<table><tr> <th>Nombre</th> <th>Fecha</th> <th>Fecha siguiente donación</th></tr>";
+        foreach ($donaciones as $donacion){
+            echo " <tr> ";
+            echo "<td>". $donacion['donante']. "</td> "; 
+            echo "<td>". $donacion['fecha_donacion']. "</td> "; 
+            echo "<td>". $donacion['fecha_proxima_donacion']. "</td> ";
+            echo "</tr> ";
+        }
+        echo "</table>"
+        ?>
 
     <footer>
-        <p><a href='index.php'>Página de inicio</a></p>
+        <p><a href='index.php'>Página de inicio</a><a href='listar_donantes.php'>Volver a lista</a></p>
     </footer>
 
 </body>

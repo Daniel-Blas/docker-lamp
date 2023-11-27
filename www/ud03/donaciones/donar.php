@@ -25,7 +25,7 @@
 
         if ($_SERVER["REQUEST_METHOD"] == 'GET'){
             $id = $_GET['id'];
-            $stmt = $conexion->prepare("SELECT * FROM donantes WHERE id = $id");
+            $stmt = $conexion->prepare("SELECT * FROM donantes WHERE id = '$id'");
             $stmt->execute();
             $donante = $stmt->fetch(PDO::FETCH_ASSOC);
             echo "¿Registrar donación de ".$donante['nombre']." ".$donante['apellidos']."?";
@@ -46,7 +46,7 @@
     ?>
   
     <footer>
-        <p><a href='index.php'>Página de inicio</a></p>
+    <p><a href='index.php'>Página de inicio</a><a href='listar_donantes.php'>Volver a lista</a></p>
     </footer>
 
 </body>
