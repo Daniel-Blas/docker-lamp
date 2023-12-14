@@ -108,6 +108,17 @@ function dar_alta_administrador($conexion, $nombre, $contrasinal)
     return $consulta->execute();
 }
 
+function get_administradores($conexion){
+    $consulta = $conexion->prepare("SELECT * FROM administradores");
+    $consulta->execute();
+    return $consulta;
+}
+
+function eliminar_administrador($conexion, $nombre){
+    $consulta = $conexion->prepare("DELETE FROM administradores where nombre = '$nombre'");
+    return $consulta->execute();
+}
+
 function dar_alta_donacion($conexion, $idDonante, $fechaDonacion)
 {
     $ultima_donacion = get_ultima_donacion($conexion, $idDonante);
