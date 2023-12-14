@@ -166,6 +166,15 @@ function get_ultima_donacion($conexion, $idDonante)
     return $proxima_donacion;
 }
 
+function get_donacion_fechas($conexion){
+    $consulta = $conexion->prepare("SELECT donantes.nombre, donantes.apellidos, historico.fechaDonacion, historico.proximaDonacion
+                                                          FROM donantes, historico 
+                                                          ORDER BY historico.fechaDonacion DESC");
+    $consulta->execute();
+    return $consulta;
+
+}
+
 function cerrar_conexion($conexion)
 {
     $conexion = null;
