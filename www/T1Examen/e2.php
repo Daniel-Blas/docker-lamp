@@ -11,6 +11,19 @@
   </head>
   <body>
     <div class="container">
+      <?php
+
+        $aleatorio =  random_int(1, 30);
+        // echo $aleatorio;
+        echo "<ul>";
+        $a = "a";
+        for ($i = 0; $i < $aleatorio; $i++){
+          echo "<li>$a</li>";
+          $a .= "a";
+        }
+        echo "</ul>";
+
+      ?>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
