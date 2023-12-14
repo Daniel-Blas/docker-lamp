@@ -25,7 +25,8 @@ if (isset($_POST["submit"])) {
     if (isset($_GET["id"])) {
         $id_user = $_GET["id"];
         
-        $user = get_usuario($conexion);
+        // CDBA La función get_usuario necesita un id de usuario como argumento
+        $user = get_usuario($conexion, $id_user);
 
         if ($user->num_rows > 0) {
             $row = $user->fetch_assoc();

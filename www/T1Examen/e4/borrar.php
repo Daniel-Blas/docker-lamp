@@ -22,7 +22,8 @@ include "lib/utilidades.php";
     </script>
 
 <?php
-
+// CDBA Hace falta conseguir una conexion antes de poder usarla
+$conexion = get_conexion();
 $seleccion_bd = seleccionar_bd_tienda($conexion);
 
 $id = $_GET["id"];

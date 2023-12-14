@@ -33,7 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 
         $conexion = get_conexion();
         seleccionar_bd_tienda($conexion);
-        dar_alta_usuario($nombre, $apellidos, $edad, $provincia);
+        // CDBA La función dar_alta_usuario necesita como primer argumento una conexion
+        dar_alta_usuario($conexion, $nombre, $apellidos, $edad, $provincia);
         $mensajes = "Usuario dado de alta correctamente";
         cerrar_conexion($conexion);
     }

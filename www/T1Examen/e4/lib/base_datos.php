@@ -7,11 +7,15 @@ function get_conexion()
     if ($conexion->connect_errno != null) {
         die("Fallo en la conexión: " . $conexion->connect_error . "Con numero" . $conexion->connect_errno);
     }
+
+    // CDBA Esta función no devuelve nada, necesita devolver una conexión
+    return $conexion;
 }
 
 function seleccionar_bd_tienda($conexion)
 {
-    return $conexion->select_db("tinda");
+    // CDBA Está mal escrito el nombre de la base de datos
+    return $conexion->select_db("tienda");
 }
 
 function ejecutar_consulta($conexion, $sql)
