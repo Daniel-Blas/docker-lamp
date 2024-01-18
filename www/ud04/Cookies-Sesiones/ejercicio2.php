@@ -16,18 +16,16 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $_SESSION['idioma'] = $_GET['idioma'];
     }
-    $benvida;
-    switch ($_SESSION['idioma']){
-        
-        case "galego" :
-            $benvida = "Benvido a miña páxina!";
-        case "castellano" :
-            $benvida = "Bienvenido a mi página!";
-        case "english" :
-            $benvida = "Welcome to my page!";
-        default :
-            $benvida = "Benvido a miña páxina!";
-        }
+    $benvida = "Benvido a miña páxina!";;
+    if ($_SESSION['idioma'] == "galego") {
+        $benvida = "Benvido a miña páxina!";
+    }
+    else if ($_SESSION['idioma'] == "castellano"){
+        $benvida = "Bienvenido a mi página!";
+    }else if ($_SESSION['idioma'] == "english"){
+        $benvida = "Welcome to my page!";
+    }
+    
     echo "<h3>$benvida</h3>";
 
     ?>
