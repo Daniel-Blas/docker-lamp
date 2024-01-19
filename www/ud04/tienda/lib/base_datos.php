@@ -54,7 +54,7 @@ function crear_tabla_productos($conexion)
           nombre VARCHAR(50) NOT NULL , 
           descripcion VARCHAR(100) NOT NULL ,
           precio FLOAT (3) NOT NULL ,
-          unidades Float (3) NOT NULL,
+          unidades FLOAT (3) NOT NULL,
           foto BLOB NOT NULL)";
 
     ejecutar_consulta($conexion, $sql);
@@ -104,6 +104,12 @@ function borrar_usuario($conexion, $id)
 
     $resultado = ejecutar_consulta($conexion, $sql);
     return $resultado;
+}
+
+function introducir_producto($conexion, $nombre, $descripcion, $precio, $unidades, $foto){
+    $sql = $conexion->prepare("INSERT INTO productos (nombre, descripcion, precio, unidades, foto) VALUES (?,?,?,?)");
+    $sql->bind_param("ssddb", $nombre, $descripcion, $precio, $unidades, file_get_contents($foto['name']));
+    return $sql->execute() or die($conexion->error);
 }
 
 function cerrar_conexion($conexion)
