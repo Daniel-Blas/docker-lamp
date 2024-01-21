@@ -31,28 +31,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $descripcion = test_input($_POST["descripcion"]);
         $precio =$_POST["precio"];
         $unidades = $_POST["unidades"];
-        $foto = $_FILES['foto'];
-        $target_dir = "images/";
-        $target_foto = $target_dir . basename($foto["name"]);
-        if (compruebaExtension($foto)){
-            if (compruebaTamanho($foto)){
-                if (move_uploaded_file($foto['tmp_name'], $target_foto)) {
-                    $mensajes =  "El fichero ". htmlspecialchars( basename( $foto["name"])). "ha sido subido.";
-                    $conexion = get_conexion();
-                    seleccionar_bd_tienda($conexion);
-                    introducir_producto($conexion, $nombre, $descripcion, $precio, $unidades, $foto);
-                    $mensajes = "Producto introducido correctamente";
-                    cerrar_conexion($conexion);
-                } else {
-                    $mensajes =  "Hubo un error subiendo el fichero";
-                }
-            } else {
-                $mensajes = "El archivo sobrepasa el tamaño de 50 MB </br>";
-            }
-        } else {
-            $mensajes = "Solo se admiten archivos jpg, png, jpeg o gif</br>";
-        }
 
+        // Apartado 2
+        // $foto = $_FILES['foto'];
+        // $target_dir = "images/";
+        // $target_foto = $target_dir . basename($foto["name"]);
+        // if (compruebaExtension($foto)){
+        //     if (compruebaTamanho($foto)){
+        //         if (move_uploaded_file($foto['tmp_name'], $target_foto)) {
+        //             $mensajes =  "El fichero ". htmlspecialchars( basename( $foto["name"])). "ha sido subido.";
+        //             $conexion = get_conexion();
+        //             seleccionar_bd_tienda($conexion);
+        //             introducir_producto($conexion, $nombre, $descripcion, $precio, $unidades, $target_foto);
+        //             $mensajes = "Producto introducido correctamente";
+        //             cerrar_conexion($conexion);
+        //         } else {
+        //             $mensajes =  "Hubo un error subiendo el fichero";
+        //         }
+        //     } else {
+        //         $mensajes = "El archivo sobrepasa el tamaño de 50 MB </br>";
+        //     }
+        // } else {
+        //     $mensajes = "Solo se admiten archivos jpg, png, jpeg o gif</br>";
+        // }
+
+        // Apartado 4
+        $archivo = $_FILES['foto'];
+        $target_dir = compruebaArchivo($archivo);
+        $target_archivo = $target_dir . basename($archivo["name"]);
+        if (move_uploaded_file($archivo['tmp_name'], $target_archivo)) {
+            $mensajes =  "El fichero ". htmlspecialchars( basename( $archivo["name"])). "ha sido subido.";
+            $conexion = get_conexion();
+            seleccionar_bd_tienda($conexion);
+            introducir_producto($conexion, $nombre, $descripcion, $precio, $unidades, $target_archivo);
+            $mensajes = "Producto introducido correctamente";
+            cerrar_conexion($conexion);
+        } else {
+            $mensajes =  "Hubo un error subiendo el fichero";
+        }
     }
 }
 ?>
@@ -72,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
       <br><br>
       Unidades: <input type="number" step="0.01" name="unidades">
       <br><br>
-      Foto: <input type="file" name="foto">
+      Foto: <input type="file" name="foto" multiple>
       
       <input type="submit" name="submit" value="Submit">
     </form>

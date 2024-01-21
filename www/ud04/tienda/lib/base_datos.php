@@ -107,8 +107,9 @@ function borrar_usuario($conexion, $id)
 }
 
 function introducir_producto($conexion, $nombre, $descripcion, $precio, $unidades, $foto){
-    $sql = $conexion->prepare("INSERT INTO productos (nombre, descripcion, precio, unidades, foto) VALUES (?,?,?,?)");
-    $sql->bind_param("ssddb", $nombre, $descripcion, $precio, $unidades, file_get_contents($foto['name']));
+    $sql = $conexion->prepare("INSERT INTO productos (nombre, descripcion, precio, unidades, foto) VALUES (?,?,?,?, ?)");
+    $reference = file_get_contents($foto);
+    $sql->bind_param("ssdds", $nombre, $descripcion, $precio, $unidades, $reference);
     return $sql->execute() or die($conexion->error);
 }
 

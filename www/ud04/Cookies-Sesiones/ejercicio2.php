@@ -13,8 +13,8 @@
 </head>
 <body>
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        $_SESSION['idioma'] = $_GET['idioma'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $_SESSION['idioma'] = $_POST['idioma'];
     }
     $benvida = "Benvido a miña páxina!";;
     if ($_SESSION['idioma'] == "galego") {
@@ -29,7 +29,7 @@
     echo "<h3>$benvida</h3>";
 
     ?>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="get">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
         <select name="idioma" id="idioma">
             <option value="galego">Galego</option>
             <option value="castellano">Castellano</option>
