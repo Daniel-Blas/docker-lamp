@@ -1,3 +1,11 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION['usuario'])){	
+		header("Location: login.php");
+	}	
+	
+?>
+
 <?php
 
   require "lib/base_datos.php";
@@ -32,6 +40,7 @@
         <a class="btn btn-primary" href="dar_de_alta.php" role="button"> Alta usuarios</a>
         <a class="btn btn-primary" href="listar.php" role="button"> Listar usuarios</a>
         <a class="btn btn-primary" href="introducir_productos.php" role="button"> Introducir productos</a>
+        <a class="btn btn-primary" href="login.php" role="button"> Login</a>
     </p>
     <footer>
         <p>

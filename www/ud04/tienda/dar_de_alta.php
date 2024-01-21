@@ -23,17 +23,19 @@
 $mensajes = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-    if (empty($_POST["name"]) || empty($_POST["apellidos"]) || empty($_POST["edad"])) {
+    if (empty($_POST["name"]) || empty($_POST["apellidos"]) || empty($_POST["edad"]) || empty($_POST["pass"])) {
         $mensajes =  "Falta algún dato obligatorio del formulario </br>";
     } else {
         $nombre = test_input($_POST["name"]);
+        $pass = test_input($_POST['pass']);
+        $hasheado = password_hash($pass, PASSWORD_DEFAULT);
         $apellidos = test_input($_POST["apellidos"]);
         $edad = test_input($_POST["edad"]);
         $provincia = test_input($_POST["provincia"]);
 
         $conexion = get_conexion();
         seleccionar_bd_tienda($conexion);
-        dar_alta_usuario($conexion, $nombre, $apellidos, $edad, $provincia);
+        dar_alta_usuario($conexion, $nombre, $hasheado, $apellidos, $edad, $provincia);
         $mensajes = "Usuario dado de alta correctamente";
         cerrar_conexion($conexion);
     }
@@ -48,6 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <p>Formulario de alta</p>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
       Nombre: <input type="text" name="name">
+      <br><br>
+      Contraseña: <input type="text" name="pass">
       <br><br>
       Apellidos: <input type="text" name="apellidos">
       <br><br>

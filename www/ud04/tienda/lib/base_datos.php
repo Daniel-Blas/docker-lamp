@@ -38,13 +38,15 @@ function crear_tabla_usuarios($conexion)
 
     $sql = "CREATE TABLE IF NOT EXISTS usuarios(
           id INT(6) AUTO_INCREMENT PRIMARY KEY , 
-          nombre VARCHAR(50) NOT NULL , 
+          nombre VARCHAR(50) NOT NULL ,
+          pass VARCHAR(255) NOT NULL,
           apellidos VARCHAR(100) NOT NULL ,
           edad INT (3) NOT NULL ,
           provincia VARCHAR(50) NOT NULL)";
 
     ejecutar_consulta($conexion, $sql);
 }
+
 
 function crear_tabla_productos($conexion)
 {
@@ -90,10 +92,10 @@ function editar_usuario($conexion, $id, $nombre, $apellidos, $edad, $provincia)
 }
 
 
-function dar_alta_usuario($conexion, $nombre, $apellidos, $edad, $provincia)
+function dar_alta_usuario($conexion, $nombre, $pass, $apellidos, $edad, $provincia)
 {
-    $sql = $conexion->prepare("INSERT INTO usuarios (nombre,apellidos,edad,provincia) VALUES (?,?,?,?)");
-    $sql->bind_param("ssss", $nombre, $apellidos, $edad, $provincia);
+    $sql = $conexion->prepare("INSERT INTO usuarios (nombre,pass,apellidos,edad,provincia) VALUES (?,?,?,?,?)");
+    $sql->bind_param("sssss", $nombre, $pass, $apellidos, $edad, $provincia);
     return $sql->execute() or die($conexion->error);
 }
 
@@ -116,4 +118,33 @@ function introducir_producto($conexion, $nombre, $descripcion, $precio, $unidade
 function cerrar_conexion($conexion)
 {
     $conexion->close();
+}
+
+
+// funciones login
+
+function buscarUsuario($nombre){
+    $conexion = get_conexion();
+    seleccionar_bd_tienda($conexion);
+    $sql = "SELECT COUNT(id) AS cantidad
+            FROM usuarios
+            WHERE nombre ='$nombre' ";
+    $resultado = ejecutar_consulta($conexion, $sql);
+    if($resultado->fetch_assoc()["cantidad"] != "0"){
+           return true;
+    } else {
+        return false;
+    }
+    
+}
+
+function contrasenha($usuario){
+    $conexion = get_conexion();
+    seleccionar_bd_tienda($conexion);
+    $sql = "SELECT pass
+            FROM usuarios
+            WHERE nombre ='$usuario'";
+
+    $resultado = ejecutar_consulta($conexion, $sql)->fetch_assoc()["pass"];
+    return $resultado;
 }
