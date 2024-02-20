@@ -1,10 +1,10 @@
 <?php
-/*
+/**
  *
  * Clase contacto que almacena un nome, apelidos e un número
  * @author Daniel Blas <a22carlosba@iessanclemente.net>
- * 
-*/
+ *
+ */
 
 
 class Contacto {
