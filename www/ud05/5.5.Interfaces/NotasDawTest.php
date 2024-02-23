@@ -5,7 +5,7 @@ $clase = new NotasDaw();
 $arrNotas = [3, 6, 7, 2, 4, 6, 7, 9, 2, 5, 3, 4, 0];
 $clase->setNotas($arrNotas);
 
-echo "Número de aprobacos:" . $clase->numeroDeAprobados();
+echo "Número de aprobados:" . $clase->numeroDeAprobados();
 echo "</br>";
 echo "Número de suspensos: " . $clase->numeroDeSuspensos();
 echo "</br>";
