@@ -1,6 +1,6 @@
 <?php
-
 // Verificar si el usuario ha iniciado sesión
+session_start();
 // Si el usuario no ha iniciado sesión, redirigir al formulario de inicio de sesión
 
 // Bienvenida
