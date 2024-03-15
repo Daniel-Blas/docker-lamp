@@ -1,5 +1,4 @@
 <?php
-namespace e3;
 require_once "Rectangulo.php";
 
 $rectangulo1 = new Rectangulo(23, 15);

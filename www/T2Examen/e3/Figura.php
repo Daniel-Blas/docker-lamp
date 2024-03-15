@@ -1,6 +1,5 @@
 <?php
 
-namespace e3;
 
 abstract class Figura
 {

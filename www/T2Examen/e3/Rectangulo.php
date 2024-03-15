@@ -1,6 +1,5 @@
 <?php
 
-namespace e3;
 require_once "Figura.php";
 
 class Rectangulo extends Figura
