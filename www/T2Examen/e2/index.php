@@ -20,7 +20,12 @@
         <?php
         
         // Mostrar las notas guardadas en forma de lista
-        
+        $directorio_notas = "notas/";
+        $dir = opendir($directorio_notas);
+        while (false !== ($entry = readdir($dir))) {
+            if (pathinfo($entry)['extension'] == "txt")
+                echo "$entry <br>";
+    }
         ?>
     </ul>
 </body>
