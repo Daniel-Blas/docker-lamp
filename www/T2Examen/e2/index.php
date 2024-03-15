@@ -20,6 +20,7 @@
         <?php
         
         // Mostrar las notas guardadas en forma de lista
+        
         ?>
     </ul>
 </body>
