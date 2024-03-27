@@ -47,8 +47,7 @@ Flight::route('POST /clientes', function(){
 });
 
 // Borrar un cliente dado un id
-Flight::route('DELETE /clientes', function(){
-    $id = Flight::request()->data->id;
+Flight::route('DELETE /clientes/@id', function(string $id){
     $sql = "DELETE FROM clientes WHERE id = ?";
     $sentencia = Flight::db()->prepare($sql);
     $sentencia->bindParam(1, $id);
@@ -57,8 +56,7 @@ Flight::route('DELETE /clientes', function(){
 });
 
 // Modificar un cliente sus apellido, edad, email y teléfono
-Flight::route('PUT /clientes', function(){
-    $id = Flight::request()->data->id;
+Flight::route('PUT /clientes/@id', function(string $id){
     $apellidos = Flight::request()->data->apellidos;
     $edad = Flight::request()->data->edad;
     $email = Flight::request()->data->email;
@@ -116,8 +114,7 @@ Flight::route('POST /hoteles', function(){
 });
 
 // Borrar un hotel dado un id
-Flight::route('DELETE /hoteles', function(){
-    $id = Flight::request()->data->id;
+Flight::route('DELETE /hoteles/@id', function(string $id){
     $sql = "DELETE FROM hoteles WHERE id = ?";
     $sentencia = Flight::db()->prepare($sql);
     $sentencia->bindParam(1, $id);
@@ -126,8 +123,7 @@ Flight::route('DELETE /hoteles', function(){
 });
 
 // Modificar un hotel su dirección, email y teléfono
-Flight::route('PUT /hoteles', function(){
-    $id = Flight::request()->data->id;
+Flight::route('PUT /hoteles/@id', function(string $id){
     $direccion = Flight::request()->data->direccion;
     $email = Flight::request()->data->email;
     $telefono = Flight::request()->data->telefono;
@@ -195,8 +191,7 @@ Flight::route('POST /reservas', function(){
 });
 
 // Borrar una reserva dado un id
-Flight::route('DELETE /reservas', function(){
-    $id = Flight::request()->data->id;
+Flight::route('DELETE /reservas/@id', function(string $id){
     $sql = "DELETE FROM reservas WHERE id = ?";
     $sentencia = Flight::db()->prepare($sql);
     $sentencia->bindParam(1, $id);
@@ -206,8 +201,7 @@ Flight::route('DELETE /reservas', function(){
 
 
 // Modificar una reserva su fecha de entrada y de salida
-Flight::route('PUT /reservas', function(){
-    $id = Flight::request()->data->id;
+Flight::route('PUT /reservas/@id', function(string $id){
     $fecha_entrada = Flight::request()->data->fecha_entrada;
     $fecha_salida = Flight::request()->data->fecha_salida;
 
