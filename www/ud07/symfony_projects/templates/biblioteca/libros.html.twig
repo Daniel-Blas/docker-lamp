@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{ title }}
+{% endblock %}
+
+
+{% block body %}
+	<h3>Listado de libros</h3>
+	{# Creamos una lista #}
+	<ul>
+		{# y recorremos todos los libros para mostrarlos #}
+		{%  for libro in libros %}
+			<li>{{libro.nombre}},
+				{{libro.autor}}.</li>
+		{% endfor %}
+	</ul>
+
+	{# Pie de página #}
+	<footer>
+		<p>
+			<a href="/">Inicio</a>
+		</P>
+	</footer>
+
+
+{% endblock %}
