@@ -1,0 +1,382 @@
+[
+    {
+        "nombre": "El talento de Mr. Ripley",
+        "autor": "Patricia Highsmith"
+    },
+    {
+        "nombre": "Adios, muñeca",
+        "autor": "Raymond Chandler"
+    },
+    {
+        "nombre": "El misterio del cuarto amarillo",
+        "autor": "Gaston Leroux"
+    },
+    {
+        "nombre": "El martillo azul",
+        "autor": "Ross Macdonald"
+    },
+    {
+        "nombre": "Cosecha roja",
+        "autor": "Dashiell Hammett"
+    },
+    {
+        "nombre": "El caso del 'canario' asesinado",
+        "autor": "S. S. Vand Dine"
+    },
+    {
+        "nombre": "El caso de la chica vacilante",
+        "autor": "Erle Stanley Gardner"
+    },
+    {
+        "nombre": "El secuestro de miss Blandish",
+        "autor": "James Hadley Chase"
+    },
+    {
+        "nombre": "El misterio de los hermanos siameses",
+        "autor": "Ellery Queen"
+    },
+    {
+        "nombre": "El cartero siempre llama dos veces",
+        "autor": "James M. Cain"
+    },
+    {
+        "nombre": "Los hermanos Rico",
+        "autor": "Georges Simenon"
+    },
+    {
+        "nombre": "Sangre en el espejo de la reina",
+        "autor": "Carter Dickson"
+    },
+    {
+        "nombre": "No quisiera estar en sus zapatos",
+        "autor": "William Irish"
+    },
+    {
+        "nombre": "Todos mueren",
+        "autor": "Chester Himes"
+    },
+    {
+        "nombre": "1.280 almas",
+        "autor": "Jim Thompson"
+    },
+    {
+        "nombre": "Yo, el jurado",
+        "autor": "Mickey Spillane"
+    },
+    {
+        "nombre": "El caso del gatito imprudente",
+        "autor": "Erle Stanley Gardner"
+    },
+    {
+        "nombre": "¿Acaso no matan a los caballos?",
+        "autor": "Horace McCoy"
+    },
+    {
+        "nombre": "La Gente Terrible",
+        "autor": "Edgar Wallace"
+    },
+    {
+        "nombre": "La bestia debe morir",
+        "autor": "Nicholas Blake"
+    },
+    {
+        "nombre": "Por el pasado llorarás",
+        "autor": "Chester Himes"
+    },
+    {
+        "nombre": "La ventana alta",
+        "autor": "Raymond Chandler"
+    },
+    {
+        "nombre": "El último caso de Drury Lane",
+        "autor": "Ellery Queen"
+    },
+    {
+        "nombre": "La dama de blanco",
+        "autor": "Wilkie Collins"
+    },
+    {
+        "nombre": "El hombre que no era nadie",
+        "autor": "Edgar Wallace"
+    },
+    {
+        "nombre": "El caso Galton",
+        "autor": "Ross Macdonald"
+    },
+    {
+        "nombre": "¡Hamlet, venganza!",
+        "autor": "Michael Innes"
+    },
+    {
+        "nombre": "Los crimenes de la viuda roja",
+        "autor": "Carter Dickson"
+    },
+    {
+        "nombre": "La llave de cristal",
+        "autor": "Dashiell Hammett"
+    },
+    {
+        "nombre": "La Piedra Lunar",
+        "autor": "Wilkie Collins"
+    },
+    {
+        "nombre": "El grito de la luchuza",
+        "autor": "Patricia Highsmith"
+    },
+    {
+        "nombre": "Next",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "Jurassic Park",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "El mundo perdido",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "Rescate en el tiempo (1999-1357)",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "Punto crítico (Airframe)",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "Presa",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "Estado de miedo",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "Sol naciente",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "Esfera",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "El gran robo del tren",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "Congo",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "El hombre terminal",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "La amenaza de andrómeda",
+        "autor": "Michael Crichton"
+    },
+    {
+        "nombre": "El capitán Alatriste",
+        "autor": "Arturo Pérez Reverte, Carlota Pérez Reverte"
+    },
+    {
+        "nombre": "Limpieza de sangre",
+        "autor": "Arturo Pérez Reverte"
+    },
+    {
+        "nombre": "Os dous de sempre",
+        "autor": "Castelao"
+    },
+    {
+        "nombre": "Xente ao lonxe",
+        "autor": "Eduardo Blanco Amor"
+    },
+    {
+        "nombre": "Os biosbardos",
+        "autor": "Eduardo Blanco Amor"
+    },
+    {
+        "nombre": "Made in Galiza",
+        "autor": "Sechu Sende"
+    },
+    {
+        "nombre": "En la Patagonia",
+        "autor": "Bruce Chatwin"
+    },
+    {
+        "nombre": "El héroe de las mil caras",
+        "autor": "Joseph Campbell"
+    },
+    {
+        "nombre": "Colapso",
+        "autor": "Jared Diamond"
+    },
+    {
+        "nombre": "Erehwon",
+        "autor": "Samuel Butler"
+    },
+    {
+        "nombre": "La letra escarlata",
+        "autor": "Nathaniel Hawthorne"
+    },
+    {
+        "nombre": "El halcón maltes",
+        "autor": "Dashiell Hammett"
+    },
+    {
+        "nombre": "Eragon",
+        "autor": "Christopher Paolini"
+    },
+    {
+        "nombre": "Eldest",
+        "autor": "Christopher Paolini"
+    },
+    {
+        "nombre": "Brisingr",
+        "autor": "Christopher Paolini"
+    },
+    {
+        "nombre": "Legado",
+        "autor": "Christopher Paolini"
+    },
+    {
+        "nombre": "El nombre del viento",
+        "autor": "Patrick Rothfuss"
+    },
+    {
+        "nombre": "El temor de un hombre sabio",
+        "autor": "Patrick Rothfuss"
+    },
+    {
+        "nombre": "Neuromancer",
+        "autor": "William Gibson"
+    },
+    {
+        "nombre": "El pistolero",
+        "autor": "Stephen King"
+    },
+    {
+        "nombre": "La llegada de los tres",
+        "autor": "Stephen King"
+    },
+    {
+        "nombre": "Eclipse total",
+        "autor": "Stephen King"
+    },
+    {
+        "nombre": "Maleficio",
+        "autor": "Stephen King"
+    },
+    {
+        "nombre": "El misterio de la guía de ferrocarriles",
+        "autor": "Agatha Christie"
+    },
+    {
+        "nombre": "Diez negritos",
+        "autor": "Agatha Christie"
+    },
+    {
+        "nombre": "El misterioso caso de Styles",
+        "autor": "Agatha Christie"
+    },
+    {
+        "nombre": "El padrino",
+        "autor": "Mario Puzo"
+    },
+    {
+        "nombre": "Una odisea espacial 2001",
+        "autor": "Arthur C. Clarke"
+    },
+    {
+        "nombre": "Dune",
+        "autor": "Frank Herbert"
+    },
+    {
+        "nombre": "El mesías de Dune",
+        "autor": "Frank Herbert"
+    },
+    {
+        "nombre": "Tormenta roja",
+        "autor": "Tom Clancy"
+    },
+    {
+        "nombre": "La voz de los muertos",
+        "autor": "Orson Scott Card"
+    },
+    {
+        "nombre": "Peligro inminente",
+        "autor": "Tom Clancy"
+    },
+    {
+        "nombre": "Ordenes ejecutivas",
+        "autor": "Tom Clancy"
+    },
+    {
+        "nombre": "El juego de Gerald",
+        "autor": "Stephen King"
+    },
+    {
+        "nombre": "La cúpula",
+        "autor": "Stephen King"
+    },
+    {
+        "nombre": "Las uvas de la ira",
+        "autor": "John Steinbeck"
+    },
+    {
+        "nombre": "La sombra fuera de tiempo y otros relatos",
+        "autor": "H. P. Lovecraft"
+    },
+    {
+        "nombre": "La llamada de Cthulhu y otros cuentos",
+        "autor": "H. P. Lovecraft"
+    },
+    {
+        "nombre": "Conan",
+        "autor": "Robert E. Howard"
+    },
+    {
+        "nombre": "El color de la magia",
+        "autor": "Terry Pratchet"
+    },
+    {
+        "nombre": "La luz fantástica",
+        "autor": "Terry Pratchet"
+    },
+    {
+        "nombre": "Buenos presagios",
+        "autor": "Terry Pratchet, Neil Gaiman"
+    },
+    {
+        "nombre": "El imperio final",
+        "autor": "Brandon Sanderson"
+    },
+    {
+        "nombre": "El martillo de Dios",
+        "autor": "Arthur C. Clarke"
+    },
+    {
+        "nombre": "Asesinato en el Orient Express",
+        "autor": "Agatha Christie"
+    },
+    {
+        "nombre": "La llamada de lo salvaje",
+        "autor": "Jack London"
+    },
+    {
+        "nombre": "Dos arquivos do trasno",
+        "autor": "Rafael Dieste"
+    },
+    {
+        "nombre": "Ilustrísima",
+        "autor": "Carlos Casares"
+    },
+    {
+        "nombre": "Os vellos non deben de namorarse",
+        "autor": "Castelao"
+    },
+    {
+        "nombre": "Arredor de si",
+        "autor": "Ramón Otero Pedrayo"
+    }
+]
