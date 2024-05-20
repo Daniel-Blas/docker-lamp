@@ -6,7 +6,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
-
+use Symfony\Contracts\Cache\CacheInterface;
+use Psr\Cache\CacheItemInterface;
 
 class bibliotecaController extends AbstractController
 {
@@ -18,15 +19,14 @@ class bibliotecaController extends AbstractController
     }
 
     #[Route('/libros')]
-    public function libros()
+    public function libros(HttpClientInterface $httpClient, CacheInterface $cache, string $slug = null): Response
     {
-        $libros = [
-            ['nombre' => "El capitán Alatriste", 'autor' => "Pérez-Reverte"],
-            ['nombre' => "Os dous de sempre", 'autor' => "Castelao"],
-            ['nombre' => "El halcón maltes", 'autor' => "Dashiel Hammett"],
-            ['nombre' => "Rescate en el tiempo", 'autor' => "Michael Crichton"],
+        $libros = $cache->get('libros_data', function (CacheItemInterface $cacheItem) use ($httpClient) {
+            $response = $httpClient->request('GET', 'https://raw.githubusercontent.com/Daniel-Blas/libros/main/libros.json');
+            $cacheItem->expiresAfter(10);
+            return $response->toArray();
+        });
 
-        ];
         return $this->render('biblioteca/libros.html.twig', [
             'title' => 'Libros',
             'libros' => $libros
