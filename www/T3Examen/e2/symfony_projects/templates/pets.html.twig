@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{ title }}
+{% endblock %}
+
+
+{% block body %}
+	{# Creamos una lista #}
+    <h3>{{title}}</h3>
+	<ul>
+		{%  for pet in pets.pets %}
+			<li>Name: {{pet.name}}, Species: {{pet.species}}, Year:{{pet.birthYear}}
+           
+            <p><img src={{pet.photo}}></p>
+                
+				</li>
+		{% endfor %}
+	</ul>
+
+
+
+
+{% endblock %}
