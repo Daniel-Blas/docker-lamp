@@ -29,7 +29,7 @@ class petsController extends AbstractController {
     public function petscache(HttpClientInterface $httpClient, CacheInterface $cache){
         $pets = $cache->get('pets', function(CacheItemInterface $cacheItem) use ($httpClient) {
             $response = $httpClient->request('GET', 'https://raw.githubusercontent.com/Daniel-Blas/docker-lamp/main/www/T3Examen/pets.json');
-            $cacheItem->expiresAfter(10);
+            $cacheItem->expiresAfter(2);
             return $response->toArray();
         });
 
